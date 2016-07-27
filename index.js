@@ -3,4 +3,4 @@
 // US Government Users Restricted Rights - Use, duplication or disclosure
 // restricted by GSA ADP Schedule Contract with IBM Corp.
 
-module.exports = require('./lib/soap-connector');
+module.exports = require('./lib/ogc-connector');
