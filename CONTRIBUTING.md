@@ -1,9 +1,9 @@
 ### Contributing ###
 
-Thank you for your interest in `loopback-connector-soap`, an open source project
-administered by StrongLoop.
+Thank you for your interest in `loopback-connector-ogc`, an open source project
+administered by Geobeyond.
 
-Contributing to `loopback-connector-soap` is easy. In a few simple steps:
+Contributing to `loopback-connector-ogc` is easy. In a few simple steps:
 
   * Ensure that your effort is aligned with the project's roadmap by
     talking to the maintainers, especially if you are going to spend a
@@ -14,7 +14,7 @@ Contributing to `loopback-connector-soap` is easy. In a few simple steps:
   * Adhere to code style outlined in the [Google C++ Style Guide][] and
     [Google Javascript Style Guide][].
 
-  * Sign the [Contributor License Agreement](https://cla.strongloop.com/agreements/strongloop/loopback-connector-soap)
+  * Sign the [Contributor License Agreement](https://cla.strongloop.com/agreements/strongloop/loopback-connector-ogc)
 
   * Submit a pull request through Github.
 
