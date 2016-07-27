@@ -1,10 +1,10 @@
 {
   "content": [
     {
-      "title": "LoopBack SOAP Connector",
+      "title": "LoopBack OGC Connector",
       "depth": 2
     },
-    "lib/soap-connector.js",
+    "lib/ogc-connector.js",
   ],
   "codeSectionDepth": 3
 }
