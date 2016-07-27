@@ -1,27 +1,27 @@
-# loopback-connector-soap
+# loopback-connector-ogc
 
-The SOAP connector enables LoopBack applications to interact with [SOAP](http://www.w3.org/TR/soap) based Web
-Services described using [WSDL](http://www.w3.org/TR/wsdl).
+The SOAP connector enables LoopBack applications to interact with [OGC](http://) based Web
+Services described using OWS [GetCapabilities](http://www.w3.org/TR/wsdl).
 
-Please see the [official documentation](http://docs.strongloop.com/display/LB/SOAP+connector).
+Please see the [official documentation](http://docs.strongloop.com/display/LB/OGC+connector).
 
-## Configure a SOAP data source
+## Configure an OGC data source
 
-To invoke a SOAP web service, we first configure a data source backed by the SOAP
+To invoke a OGC web service, we first configure a data source backed by the OGC
 connector.
 
 ```js
-    var ds = loopback.createDataSource('soap', {
-        connector: 'loopback-connector-soap'
+    var ds = loopback.createDataSource('ogc', {
+        connector: 'loopback-connector-ogc'
         remotingEnabled: true,
-        wsdl: 'http://wsf.cdyne.com/WeatherWS/Weather.asmx?WSDL'
+        owsUrl: 'http://wsf.cdyne.com/WeatherWS/Weather.asmx?WSDL'
     });
 ```
 
-## Options for the SOAP connector
+## Options for the OGC connector
 
-- **url**: url to the SOAP web service endpoint, if not present, the `location`
-attribute of the soap address for the service/port from the WSDL document will be
+- **owsUrl**: url to the OGC OWS web service endpoint, if not present, the `location`
+attribute of the ows address for the service/port from the getCapabilities document will be
 used. For example,
 
 ```xml
@@ -33,23 +33,23 @@ used. For example,
     </wsdl:service>
 ```
 
-- **wsdl**: http url or local file system path to the wsdl file, if not present,
-defaults to <url>?wsdl.
+- **getCapabilities**: http url or local file system path to the getCapabilities file, if not present,
+defaults to <owsUrl>?request=GetCapabilities.
 
 - **remotingEnabled**: indicates if the operations will be further exposed as REST
 APIs
 
-- **wsdl_options**: Indicates additonal options to pass to the soap connector. for example allowing self signed certificates:
+- **getCapabilities_options**: Indicates additonal options to pass to the soap connector. for example allowing self signed certificates:
 
 ```js
-    wsdl_options: {
+    getCapabilities_options: {
         rejectUnauthorized: false,
         strictSSL: false,
         requestCert: true,
     },
 ```
 
-- **operations**: maps WSDL binding operations to Node.js methods
+- **request**: maps getCapabilities binding operations to Node.js methods
 
 ```js
     operations: {
@@ -93,10 +93,10 @@ The valid schemes are 'WS' (or 'WSSecurity'), 'BasicAuth', and 'ClientSSL'.
     - keyPath: path to the private key file
     - certPath: path to the certificate file
 
-- **soapHeaders**: custom soap headers
+- **ogcHeaders**: custom ogc headers
 
 ```js
-    soapHeaders: [{
+    ogcHeaders: [{
         element: {myHeader: 'XYZ'}, // The XML element in JSON object format
         prefix: 'p1', // The XML namespace prefix for the header
         namespace: 'http://ns1' // The XML namespace URI for the header
@@ -105,9 +105,9 @@ The valid schemes are 'WS' (or 'WSSecurity'), 'BasicAuth', and 'ClientSSL'.
 The property value should be an array of objects that can be mapped to xml elements
 or xml strings.
 
-## Create a model from the SOAP data source
+## Create a model from the OGC data source
 
-**NOTE** The SOAP connector loads the WSDL document asynchronously. As a result,
+**NOTE** The OGC connector loads the getCapabilities document asynchronously. As a result,
 the data source won't be ready to create models until it's connected. The
 recommended way is to use an event handler for the 'connected' event.
 
@@ -121,7 +121,7 @@ recommended way is to use an event handler for the 'connected' event.
     }
 ```
 
-## Extend a model to wrap/mediate SOAP operations
+## Extend a model to wrap/mediate OGC operations
 
 Once the model is defined, it can be wrapped or mediated to define new methods.
 The following example simplifies the `GetCityForecastByZIP` operation to a method
@@ -161,4 +161,4 @@ to define the mappings.
 
 ## Examples
 
-See https://github.com/strongloop/loopback-example-connector/tree/soap.
+See https://github.com/strongloop/loopback-example-connector/tree/ogc.
