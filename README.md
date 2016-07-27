@@ -1,6 +1,6 @@
 # loopback-connector-ogc
 
-The SOAP connector enables LoopBack applications to interact with [OGC](http://) based Web
+The OGC connector enables LoopBack applications to interact with [OGC](http://) based Web
 Services described using OWS [GetCapabilities](http://www.w3.org/TR/wsdl).
 
 Please see the [official documentation](http://docs.strongloop.com/display/LB/OGC+connector).
